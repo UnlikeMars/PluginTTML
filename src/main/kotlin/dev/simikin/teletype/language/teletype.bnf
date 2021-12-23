@@ -1,0 +1,41 @@
+{
+  parserClass="dev.simikin.teletype.language.parser.TeletypeParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="PsiTeletype"
+  psiImplClassSuffix="Impl"
+  psiPackage="dev.simikin.teletype.language.psi"
+  psiImplPackage="dev.simikin.teletype.language.psi.impl"
+
+  elementTypeHolderClass="dev.simikin.teletype.language.psi.TeletypeTokenTypes"
+  elementTypeClass="dev.simikin.teletype.language.psi.TeletypeElementType"
+  tokenTypeClass="dev.simikin.teletype.language.psi.TeletypeTokenType"
+
+  psiImplUtilClass="dev.simikin.teletype.language.psi.impl.TeletypePsiImplUtil"
+
+    tokens = [
+        LPARENTH='('
+        RPARENTH=')'
+        LBRACKET='['
+        RBRACKET=']'
+        LBRACE='{'
+        RBRACE='}'
+    ]
+}
+
+file ::= element_*
+
+private element_ ::= (commands|block_comment|hyperlink|text|CRLF)
+
+commands ::= (COMMAND|COLOR_COMMAND)
+block_comment ::= COMMENT_START COMMENT_CHARACTERS* COMMENT_END
+hyperlink ::=  HYPERLINK_BEGIN RAW_TEXT HYPERLINK_END
+
+math_elements ::= (PLUS|MINUS|EQUALS|STAR|GREATER|SMALLER)
+text ::= (RAW_TEXT|COMMA|DOT|COLON|SEMICOLON|math_elements)
+
+
+
+
+

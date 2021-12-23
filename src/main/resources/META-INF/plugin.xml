@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>dev.simikin.PluginTTML</id>
+    <name>Teletype Markup Language</name>
+    <vendor url="https://simikin.dev/">Sven Simikin</vendor>
+
+    <description><![CDATA[
+    This plugin provides Teletype Markup Language support and has been developed in the framework of a Software
+    Developer Intern test task. Please do not use this plugin in production.
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Teletype"
+                  implementationClass="dev.simikin.teletype.language.types.TeletypeFileType"
+                  fieldName="INSTANCE"
+                  language="TTML"
+                  extensions="ttml"/>
+
+        <lang.parserDefinition language="TTML" implementationClass="dev.simikin.teletype.language.TeletypeParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="TTML" implementationClass="dev.simikin.teletype.language.highlighter.TeletypeSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="dev.simikin.teletype.language.highlighter.TeletypeColorSettingsPage"/>
+        <lang.commenter language="TTML" implementationClass="dev.simikin.teletype.language.TeletypeCommenter"/>
+        <lang.braceMatcher language="TTML" implementationClass="dev.simikin.teletype.language.highlighter.TeletypePairedBraceMatcher"/>
+        <completion.contributor language="TTML" implementationClass="dev.simikin.teletype.language.completion.TeletypeCompletionContributor"/>
+        <lang.psiStructureViewFactory language="TTML" implementationClass="dev.simikin.teletype.language.structure.TeletypeStructureViewFactory"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>

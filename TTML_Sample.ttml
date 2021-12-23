@@ -1,0 +1,47 @@
+^F^W^V^ATTML: TeleType Markup Language^M
+
+^B^ATTML^B is a simple markup language that can be used for all kinds of documents.^M
+the appearance of ^ATTML^B text is meant to evoke the look of mathematical and^M
+scientific papers of the mid 20th century. ^ATTML^B uses simple ^Edirectives^B^M
+which alter the appearance of text, reposition the flow of text, or allow stylistic^M
+beauty within a minimalistic and retro aesthetic.^M
+TTML directives consist of ascii control codes, or, for easier typing, the^M
+caret-notation for those codes. Note the ^^^^ directive is used to insert a caret^M
+into a TTML document.^M
+Note that this documentation is best read by following its TTML source and rendered^M
+version in parallel.^M
+
+
+^WTTML Appearance Directives^M
+^BThe most important appearance directive is ^^B which returns the appearance of^M
+text to be entirely normal. ^^B cancels all previous appearance directives.^M
+The ^^A directive creates ^Abold^B text for important terms. The ^^C directive^M
+creates ^Csmall^B text for footnotes. The ^^E directive creates ^Eitalic^B text,^M
+which can be used for the titles of works, and for ^Eemphasis^B. The ^^F directive^M
+makes ^Funderlined^B text. The ^^G directive creates ^Ghighlighted^B text.^M
+Finally the ^^U directive creates ^Ustruck thru^B text.^M
+For coloring, use directives ^P^^P, ^Q^^Q, ^R^^R, ^S^^S, ^T^^T, ^Yand ^^Y to^M
+return to black.^M
+The ^^V directive doubles the ^Vwidth^B of text, while the ^^W directive doubles^M
+the ^Wheight^B of text. For titles use both to create large text.^M
+
+
+^WTTML Text Flow Directives^M
+^BThe most important text flow directives are ^^M and ^^J which are used together^M
+to end a line. You may also know ^^J as the newline character on UNIX. Alone,^M
+^^J moves the flow of text to the next line, while ^^M moves the flow of text to the^M
+beginning of the line. To insert a newline in TTML source without inserting^M
+a ^^J you may escape it with the ^^\ directive.^M
+Other text flow directives are used mostly for formatting mathematical symbols.^M
+The ^^H directive allows one character to be superimposed on another, like these:^M
+=^H/ a^H` L^H=. In literal terms it simply moves the cursor one space backward.^M
+The ^^I directive moves one half character forward. It is used to centre fractions,^M
+like so:^M
+   __^H^H^I1^B^M
+   22^M
+The ^^K directive moves by one half-line down. It is used to create subscripts^M
+and superscripts like so:^M
+C H O + 3O  -> 2CO  + 3H O^M^K^\
+ 2 6      2       2     2^M
+ 0    -1    -2^M^K^\
+2  + 2   + 2   + ... = 2^M
